@@ -1,90 +1,109 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:1F6FEB,100:8957E5&height=210&section=header&text=Ahmed%20Sleem&fontSize=62&fontColor=FFFFFF&fontAlignY=36&desc=Robot%20Learning%20Engineer%20%E2%80%A2%20Humanoids%20%E2%80%A2%20RL%20%E2%80%A2%20VLAs%20%E2%80%A2%20World%20Models&descAlignY=58&descSize=17&animation=fadeIn" width="100%" alt="Ahmed Sleem — Robot Learning Engineer" />
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3200&pause=900&color=58A6FF&center=true&vCenter=true&multiline=false&width=720&height=40&lines=I+teach+humanoid+robots+to+move.;Then+I+find+exactly+where+they+break.;Then+I+fix+the+cause%2C+not+the+symptom." alt="I teach humanoid robots to move. Then I find exactly where they break." />
-
-<br>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:1F6FEB,100:8957E5&height=200&section=header&text=Ahmed%20Sleem&fontSize=60&fontColor=FFFFFF&fontAlignY=36&desc=Robot%20Learning%20Engineer%20%C2%B7%20Simulation-First%20Robotics&descAlignY=58&descSize=18&animation=fadeIn" width="100%" alt="Ahmed Sleem — Robot Learning Engineer" />
 
 <a href="https://www.linkedin.com/in/ahmedsleem25/"><img src="https://img.shields.io/badge/LinkedIn-ahmedsleem25-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-<img src="https://img.shields.io/badge/Open_to-Remote_%C2%B7_Relocation-2EA44F?style=for-the-badge&logo=rocket&logoColor=white" alt="Open to remote or relocation">
-<img src="https://img.shields.io/badge/Cairo-Egypt-30363D?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Cairo, Egypt">
+<img src="https://img.shields.io/badge/Open_to-Remote_%C2%B7_Relocation-2EA44F?style=for-the-badge" alt="Open to remote or relocation">
+<img src="https://img.shields.io/badge/Cairo-Egypt-30363D?style=for-the-badge" alt="Cairo, Egypt">
 
 </div>
 
-<br>
+I build robots that learn to walk, grasp and follow instructions in simulation, and then I test them until they fail.
+I care less about a good demo than about knowing **why** a system breaks: every result I publish comes with its trial count, its seeds, its failure cases and the script that produced it.
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=100000&color=E6EDF3&vCenter=true&width=500&height=34&lines=%3E+about_me" alt="about me" />
+- 🎓 **BSc Mechatronics & Robotics**, German University in Cairo
+- 🤖 **Focus:** reinforcement learning for locomotion and whole-body control, vision-language-action (VLA) models, world models
+- 💻 **Compute:** everything below was trained on one 6 GB laptop GPU (RTX 3060)
 
-```yaml
-role:      Robot learning engineer (simulation-first)
-focus:     [RL locomotion & whole-body control, vision-language-action models, world models]
-robots:    [Unitree G1 + Dex3-1 hands, Unitree Go2 + Z1 arm, OpenArm v2 bimanual]
-method:    train -> stress-test -> measure with confidence intervals -> fix the root cause
-hardware:  one 6 GB laptop GPU (RTX 3060), no cluster
-education: BSc Mechatronics & Robotics, German University in Cairo
-```
+## Featured projects
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=100000&color=E6EDF3&vCenter=true&width=500&height=34&lines=%3E+projects" alt="projects" />
+### 🔧 WorkshopRobot — "bring me the 10mm wrench"
 
-> **🦾 Humanoid triple backflip** — An RL policy that makes a Unitree G1 run off a cliff, chain **three backflips** across the gap, land on the lower cliff and keep running. Reached **100 % strict success** through a staged curriculum, with every failed attempt diagnosed and documented. *(Motors boosted to 2× torque, labelled.)*
+<img src="https://github.com/ahmedsleem109/WorkshopRobot/raw/main/media/readme_endtoend.gif" width="380" align="right" alt="Go2 quadruped with a Z1 arm fetching a tool">
 
-> **🛡️ [Humanoid robustness study](https://github.com/ahmedsleem109/humanoidmujoco)** — Pushes or domain randomization: which one actually makes a humanoid robust? Three G1 policies, **22,000 shoves**. Pushes nearly double the recovery force (**337 N → 639 N**); domain randomization adds only **2.4 %**.
+A robot dog with an arm hears a tool request, walks to the workbench, finds the tool, picks it up and brings it back, and says something useful when it can't.
 
-> **🔧 [Language-commanded mobile manipulator](https://github.com/ahmedsleem109/WorkshopRobot)** — *"Bring me the 10mm wrench."* A Go2 quadruped with a Z1 arm finds, grasps and delivers tools using a VLM, an RL walker and a fine-tuned SmolVLA. **125/125 grasps, 86 % end to end**, failures traced to their real cause.
+- **Grasping:** 125/125 (5 tools × 25 trials, while standing on its legs)
+- **End to end:** 60/70 (86 %) over 7 scenario suites × 10 seeds; 8 of the 10 failures are falls on a step, not manipulation
+- **Learned policy:** a fine-tuned SmolVLA went from 0/20 to **18/20** grasps on held-out scenes after a step-by-step diagnosis of why it failed
 
-> **🤝 [Bimanual tray carry](https://github.com/ahmedsleem109/openarm-tray-carry)** — Two OpenArm v2 arms carry a tray while balancing a loose ball, from camera images only. **12/12** carries under noise, latency, backlash and weak motors at once. [Runs in the browser.](https://ahmedsleem109.github.io/openarm-tray-carry/web/)
+Stack: MuJoCo · RL walking policy · Qwen3-VL for finding objects · SmolVLA / LeRobot
+**[Code & full results →](https://github.com/ahmedsleem109/WorkshopRobot)**
 
-> **📦 [Warehouse humanoid](https://github.com/ahmedsleem109/Warehouse-humanoid-)** — A G1 carrying a 4 kg tote, planned by a local 4-bit VLM. **0/64 falls** at full load, with the exact breaking points mapped: latency, shove force, floor friction, motor strength.
+<br clear="right">
 
-> **🧵 [RopePhysics](https://github.com/ahmedsleem109/RopePhysics)** — A C++/CUDA cable simulator validated against textbook physics. A learned policy routes **1024/1024** unseen wire harnesses; the hand-written baseline routes none.
+### 🛡️ Humanoid robustness study — what actually stops a humanoid from falling?
 
-> **🔍 [Baglens](https://github.com/ahmedsleem109/Baglens)** — Audits robot recordings before anyone debugs from them: silent gaps, stale data, broken transforms. Published precision and recall, and an honest *"unassessable"* when it can't tell. Ships as an MCP server.
+<img src="https://github.com/ahmedsleem109/humanoidmujoco/raw/main/results/gifs/v3_hero.gif" width="380" align="right" alt="Three G1 policies receiving the same shove">
 
-> **⚙️ [Jointly](https://jointlyapp.netlify.app/)** — A desktop app that converts CAD (STEP, SolidWorks, meshes) into simulation-ready **URDF, MJCF, SDF and USD** automatically.
+The usual recipe for robust walking mixes random pushes during training with domain randomization. I trained three Unitree G1 policies that differ **only** in that, then shoved them 22,000 times.
 
-> **🔭 Foresight** *(in progress)* — A G1 with real Dex3-1 hands performs language-instructed loco-manipulation with **finger-contact grasping**. A VLA drives an RL whole-body controller, and a learned **world model vetoes actions predicted to fall, collide or drop**.
+- **Pushes do the work:** the force the robot survives half the time rises from **337 N to 639 N**
+- **Domain randomization adds only 2.4 %** on top
+- Includes a bug in my own evaluation that I found, fixed and documented (it was hiding the falls)
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=100000&color=E6EDF3&vCenter=true&width=500&height=34&lines=%3E+open_source" alt="open source" />
+Stack: MuJoCo / mjlab · PPO · 4,096 parallel robots
+**[Code & full results →](https://github.com/ahmedsleem109/humanoidmujoco)**
 
-- **[unitree_rl_mjlab](https://github.com/unitreerobotics/unitree_rl_mjlab/pulls?q=author%3Aahmedsleem109)** (Unitree) — dependency bounds that keep fresh installs working
-- **[ros2_medkit](https://github.com/selfpatch/ros2_medkit/pulls?q=author%3Aahmedsleem109)** — fault debouncing and diagnostic-data fixes for ROS 2 robots
+<br clear="right">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=100000&color=E6EDF3&vCenter=true&width=500&height=34&lines=%3E+tech_stack" alt="tech stack" />
+### 🤝 Bimanual tray carry — balancing a ball from camera images
+
+<img src="https://github.com/ahmedsleem109/openarm-tray-carry/raw/main/docs/demo.gif" width="380" align="right" alt="Two arms carrying a tray with a ball, balancer off vs on">
+
+Two OpenArm v2 arms pick up a tray and carry it while keeping a loose ball from rolling off, using only two camera images, with real collisions and nothing glued in place.
+
+- **12/12** carries with camera noise, 40 ms latency, backlash, weak motors and randomized dynamics **all at once** (12 randomized layouts, fixed seeds)
+- Without the balancer: **1/12**
+- **[Try it in your browser →](https://ahmedsleem109.github.io/openarm-tray-carry/web/)** (real MuJoCo physics, shove the ball yourself)
+
+**[Code & full results →](https://github.com/ahmedsleem109/openarm-tray-carry)**
+
+<br clear="right">
+
+## More projects
+
+- **[RopePhysics](https://github.com/ahmedsleem109/RopePhysics)**: a C++/CUDA rope and cable simulator checked against textbook physics; a learned policy routes 1024/1024 new wire harnesses where a hand-written one routes none.
+- **[Warehouse humanoid](https://github.com/ahmedsleem109/Warehouse-humanoid-)**: a G1 carrying a 4 kg tote (0/64 falls), planned by a small local vision-language model, with its breaking points mapped (latency, shoves, friction, motor strength).
+- **[Baglens](https://github.com/ahmedsleem109/Baglens)**: checks whether a robot recording can be trusted before anyone debugs from it; published precision/recall, runs as an MCP server.
+- **[Jointly](https://jointlyapp.netlify.app/)**: a desktop app that turns CAD into simulation-ready URDF, MJCF, SDF and USD robot models.
+- **Humanoid triple backflip** *(private)*: a G1 runs off a cliff, does three backflips across the gap and lands running; 100 % strict success in evaluation with motors boosted to 2× torque.
+
+## Currently working on
+
+**Foresight**: a Unitree G1 with real Dex3-1 hands follows language instructions ("put the red mug on the shelf"), grasping with actual finger contact. A VLA model drives an RL whole-body controller, and a learned **world model imagines the next 1–2 seconds and blocks actions predicted to fall, collide or drop the object**.
+
+## Open source
+
+- **[unitree_rl_mjlab](https://github.com/unitreerobotics/unitree_rl_mjlab/pulls?q=author%3Aahmedsleem109)** (Unitree): dependency bounds that keep fresh installs working
+- **[ros2_medkit](https://github.com/selfpatch/ros2_medkit/pulls?q=author%3Aahmedsleem109)**: fault debouncing and diagnostic-data fixes for ROS 2 robots
+
+## Tech stack
 
 <div align="center">
 
-**Robot learning**<br>
-<img src="https://img.shields.io/badge/Reinforcement_Learning-PPO-F78166?style=for-the-badge" alt="RL">
-<img src="https://img.shields.io/badge/Imitation_Learning-LeRobot-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="LeRobot">
-<img src="https://img.shields.io/badge/VLA-SmolVLA-FF9D00?style=for-the-badge&logo=huggingface&logoColor=black" alt="SmolVLA">
-<img src="https://img.shields.io/badge/VLMs-Qwen--VL-8957E5?style=for-the-badge" alt="Qwen-VL">
-
-**Simulation**<br>
 <img src="https://img.shields.io/badge/MuJoCo-1F6FEB?style=for-the-badge" alt="MuJoCo">
-<img src="https://img.shields.io/badge/mjlab-0D1117?style=for-the-badge" alt="mjlab">
-<img src="https://img.shields.io/badge/MJX_%C2%B7_Brax-6E40C9?style=for-the-badge" alt="MJX, Brax">
-<img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA">
-
-**Engineering**<br>
+<img src="https://img.shields.io/badge/mjlab_%C2%B7_MJX_%C2%B7_Brax-6E40C9?style=for-the-badge" alt="mjlab, MJX, Brax">
+<img src="https://img.shields.io/badge/RL-PPO-F78166?style=for-the-badge" alt="RL: PPO">
+<img src="https://img.shields.io/badge/LeRobot_%C2%B7_SmolVLA-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="LeRobot, SmolVLA">
+<img src="https://img.shields.io/badge/VLMs-Qwen--VL-8957E5?style=for-the-badge" alt="Qwen-VL">
+<br>
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
 <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++">
+<img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA">
 <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
 <img src="https://img.shields.io/badge/JAX-A8B9CC?style=for-the-badge" alt="JAX">
 <img src="https://img.shields.io/badge/ROS_2-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS 2">
 <img src="https://img.shields.io/badge/ONNX-005CED?style=for-the-badge&logo=onnx&logoColor=white" alt="ONNX">
-<img src="https://img.shields.io/badge/SolidWorks-DA291C?style=for-the-badge" alt="SolidWorks">
 
 </div>
 
-<br>
+---
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=17&pause=1500&color=8B949E&center=true&vCenter=true&width=700&height=30&lines=Looking+for+robot+learning+%C2%B7+RL+%C2%B7+simulation+roles.;Let's+build+robots+that+don't+fall+over." alt="Looking for robot learning, RL and simulation roles" />
+*Looking for robot learning, RL and simulation roles.* **[Let's talk on LinkedIn →](https://www.linkedin.com/in/ahmedsleem25/)**
 
-<a href="https://www.linkedin.com/in/ahmedsleem25/"><img src="https://img.shields.io/badge/Let's_talk-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Let's talk on LinkedIn"></a>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8957E5,50:1F6FEB,100:0D1117&height=110&section=footer" width="100%" alt="" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8957E5,50:1F6FEB,100:0D1117&height=100&section=footer" width="100%" alt="" />
 
 </div>
